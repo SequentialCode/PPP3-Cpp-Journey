@@ -1,0 +1,8 @@
+# Visual Studio build folders and temp files
+[Dd]ebug/
+[Rr]elease/
+x64/
+*.user
+*.filters
+*.sln.intermediate.json
+.vs/

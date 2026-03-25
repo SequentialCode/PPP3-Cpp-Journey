@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="NumericalSequence.vcxproj" Id="6292db05-a29c-4a33-ae76-61d28bd84d05" />
+</Solution>

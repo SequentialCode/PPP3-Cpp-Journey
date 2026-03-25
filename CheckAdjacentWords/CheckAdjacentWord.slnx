@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CheckAdjacentWord.vcxproj" Id="61deaf3e-ec96-45bc-82c2-1d5ad502c084" />
+</Solution>

@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="MilesToKms.vcxproj" Id="201318f7-72f5-4439-8e2c-6beb3d01d051" />
+</Solution>
