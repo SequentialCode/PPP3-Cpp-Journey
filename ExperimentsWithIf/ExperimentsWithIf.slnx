@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ExperimentsWithIf.vcxproj" Id="7c7363d7-17be-4b1b-b5f0-4b2d537d666d" />
+</Solution>
