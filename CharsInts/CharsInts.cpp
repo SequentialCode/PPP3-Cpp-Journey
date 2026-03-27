@@ -1,10 +1,6 @@
 /*
-* The character 'b' is char(’a’+1), 'c' is char(’a’+2), etc. Use a loop to write out a
-  table of characters with their corresponding integer values:
-	a 97
-	b 98
-	...
-	z 122
+* Rewrite the character value example from the previous TRY THIS to use a for-statement. Then modify your program to also write out a table of the
+ integer values for uppercase letters and digits.
 */
 
 import std;
@@ -12,11 +8,10 @@ import std;
 int main()
 {
 
-	char c = 'a';
-	while( c <= 'z')
+	
+	for(char c = 'A'; c <= 'Z'; ++c)
 	{
 		std::cout << c << '\t' << (int) c << '\n';
-		c++;
 	}
 	
 }
