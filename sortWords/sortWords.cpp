@@ -6,6 +6,10 @@ int main()
 	for(std::string word; std::cin >> word;)
 		words.push_back(word);
 	std::ranges::sort(words);
-	for(std::string word:words)
-		std::cout << word << '\n';
+	for(int i = 0; i < words.size(); ++i)
+	{
+		if(i == 0 || words[i] != words[i-1])
+			std::cout << words[i] << '\n';
+	}
+
 }
