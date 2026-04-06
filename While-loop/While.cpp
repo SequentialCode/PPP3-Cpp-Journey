@@ -4,37 +4,45 @@
 	[3] Augment the program so that it writes the line the numbers are equal (only) if they are equal.
 	[4] Change the program so that it uses doubles instead of ints.
 	[5] Change the program so that it writes out the numbers are almost equal after writing out which is the larger and the smaller if the two numbers differ by less than 1.0/100.
+	[6] Now change the body of the loop so that it reads just one double each time around. Define two variables to keep track of which is the smallest and which is the largest value 	    you have seen so far. Each time through the loop write out the value entered. If it’s the smallest so far, write the smallest so far after the number. If it is the largest so
+	    far, write the largest so far after the number.
 */
 
 import std;
 
 int main()
 {
-	double i{}, j{};
-	constexpr double tolerance{ 1.0 / 100 };
-	while (std::cout << "Enter two floating-point numbers (or '|' to quit): " && std::cin >> i >> j)
+	double input{}, smallest{}, largest{};
+
+	std::cout << "Enter numbers (enter '|' to exit):\n";
+	std::cout << "> ";
+
+	if(!(std::cin >> input))
 	{
-		if (i == j)
-			std::cout << "the numbers are equal\n";
-		else
-		{
-			if (i < j)
-			{
-				std::cout << "the smaller value is: " << i << '\n';
-				std::cout << "the larger value is: " << j << '\n';
-			}
-			else
-			{
-				std::cout << "the smaller value is: " << j << '\n';
-				std::cout << "the larger value is: " << i << '\n';
-			}
-
-			if (std::abs(i - j) < tolerance)
-			{
-				std::cout << "the numbers are almost equal" << '\n';
-			}
-		}
-
+		std::cout << "Invalid input\n";
+		return 1;
 	}
+
+	largest = smallest = input;
+
+	while (std::cout << "> " && std::cin >> input)
+	{
+		std::cout << input;
+		if (input < smallest)
+		{
+			smallest = input;
+			std::cout << " (the smallest so far)";
+		}else if (input > largest)
+		{
+			largest = input;
+			std::cout << " (the largest so far)";
+		}
+		std::cout << "\n";
+	}
+	
+	std::cout << "\nFinal Results:\n";
+	std::cout << "Smallest: " << smallest << "\n";
+    std::cout << "Largest: " << largest << "\n";
+
 	return 0;
 }

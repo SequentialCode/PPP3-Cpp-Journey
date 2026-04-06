@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="While-loop.vcxproj" />
+  <Project Path="While-loop.vcxproj" Id="0635abe0-af2a-4706-a195-fc86b65a4169" />
 </Solution>
