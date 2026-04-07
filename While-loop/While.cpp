@@ -6,43 +6,98 @@
 	[5] Change the program so that it writes out the numbers are almost equal after writing out which is the larger and the smaller if the two numbers differ by less than 1.0/100.
 	[6] Now change the body of the loop so that it reads just one double each time around. Define two variables to keep track of which is the smallest and which is the largest value 	    you have seen so far. Each time through the loop write out the value entered. If it’s the smallest so far, write the smallest so far after the number. If it is the largest so
 	    far, write the largest so far after the number.
+	[7] Add a unit to each double entered; that is, enter values such as 10cm, 2.5in, 5ft, or 3.33m. Accept the four units: cm, m, in, ft. Assume conversion factors 1m==100cm, 
+            1in==2.54cm, 1ft==12in. Read the unit  indicator into a string. You may consider 12 m (with a space between the number and the unit) equivalent to 12m (without a space).
+	[8] Reject values without units or with “illegal” representations of units, such as y, yard, meter, km, and gallons.
+	[9] Keep track of the sum of values entered (as well as the smallest and the largest) and the number of values entered. When the loop ends, print the smallest, the largest, the 	    number of values, and the sum of values. Note that to keep the sum, you have to decide on a unit to use for that sum; use meters.
 */
 
 import std;
 
+double inMeters(double input, std::string unit)
+{
+
+	constexpr double cmsinmtr = 0.01;
+	constexpr double insinmtr = 0.0254;
+	constexpr double ftsinmtr = 0.3048;
+	double result{};
+
+	if(unit == "cm")
+		result = input * cmsinmtr;
+	else if(unit == "ft")
+		result = input * ftsinmtr;
+	else if (unit == "in")
+		result =  input * insinmtr;
+	else if(unit == "m")
+		result =  input;
+	else 
+        	result = 0;
+	return result;		
+}
+
 int main()
 {
-	double input{}, smallest{}, largest{};
-
-	std::cout << "Enter numbers (enter '|' to exit):\n";
+	double input{};
+	std::string unit;
+	
+	std::cout << "Enter values followed by units (cm, in, ft, m) (enter '|' to exit):\n";
 	std::cout << "> ";
 
-	if(!(std::cin >> input))
+	if(!(std::cin >> input >> unit))
 	{
 		std::cout << "Invalid input\n";
 		return 1;
 	}
-
-	largest = smallest = input;
-
-	while (std::cout << "> " && std::cin >> input)
+	bool legalUnit{ true };
+	if((unit != "cm") && (unit != "in") && (unit != "ft") && (unit != "m"))
 	{
-		std::cout << input;
-		if (input < smallest)
+		std::cout << "Illegal unit\n";
+		legalUnit = false;
+	}
+	
+	double inputInMeters{};
+	double largest{std::numeric_limits<double>::lowest()}, smallest{std::numeric_limits<double>::max()}, sum{0};
+	int number = 0;
+
+	if(legalUnit)
+	{
+		inputInMeters = inMeters(input, unit);
+		largest = smallest = sum = inputInMeters;
+		++number;
+	}
+	
+	while (std::cout << "> " && std::cin >> input >> unit)
+	{
+		if((unit != "cm") && (unit != "in") && (unit != "ft") && (unit != "m"))
 		{
-			smallest = input;
+			std::cout << "Illegal unit\n";
+			continue;	
+		}
+
+		inputInMeters = inMeters(input, unit);
+
+		std::cout << input << unit;
+		if (inputInMeters < smallest)
+		{
+			smallest = inputInMeters;
 			std::cout << " (the smallest so far)";
-		}else if (input > largest)
+		}else if (inputInMeters > largest)
 		{
-			largest = input;
+			largest = inputInMeters;
 			std::cout << " (the largest so far)";
 		}
+		
+		sum += inputInMeters;
+				
+		++number;
 		std::cout << "\n";
 	}
 	
 	std::cout << "\nFinal Results:\n";
-	std::cout << "Smallest: " << smallest << "\n";
-    std::cout << "Largest: " << largest << "\n";
+	std::cout << "Smallest: " << smallest << "m\n";
+	std::cout << "Largest: " << largest << "m\n";
+	std::cout << "Number of values: " << number << "\n"; 	
+	std::cout << "Sum of values: " << sum << "m\n";
 
 	return 0;
 }
