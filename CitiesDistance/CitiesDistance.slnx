@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CitiesDistance.vcxproj" Id="2629547e-a952-4efb-814f-bf116477abf3" />
+</Solution>
