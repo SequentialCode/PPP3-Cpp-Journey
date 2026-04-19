@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a2bbb0f5-a5b7-4175-adc6-667fc3ad6adc}</ProjectGuid>
-    <RootNamespace>NumberGuessing</RootNamespace>
+    <ProjectGuid>{6d0afd05-f0dd-4f0e-8ada-28d3349cce81}</ProjectGuid>
+    <RootNamespace>VectorOutOfRange</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,7 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NumberGuessing.cpp" />
+    <ClCompile Include="VectorOutOfRange.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
