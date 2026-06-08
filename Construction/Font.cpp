@@ -7,11 +7,11 @@ struct Font
 		screen, screen_bold,
 		weird
 	};
-	int getf_asint()
+	int getf_asint () const//const, a getter, since it doesn't modify *this
 	{
 		return f;
 	}
-	Font() : f { screen } { } /constructor overrides in-class initialization
+	Font() : f { screen } { } //constructor overrides in-class initialization
 	private:
 	int f=Font_type::weird;
 	
